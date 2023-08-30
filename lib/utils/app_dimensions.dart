@@ -68,6 +68,9 @@ class Dimensions {
   static double height75 = screenHeight / 11.86;
   static double height48 = screenHeight / 18.5;
 
+  static double height35 = screenHeight / 25.42;
+  static double width340 = screenWidth / 1.20;
+
   //?Border-Radius
   static double borderRadius10 = screenHeight / 89;
   static double borderRadius20 = screenHeight / 44.5;

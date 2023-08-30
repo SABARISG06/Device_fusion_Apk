@@ -1,58 +1,40 @@
 import 'package:device_fusion/utils/app_colors.dart';
+import 'package:device_fusion/utils/app_dimensions.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomTabBar extends StatelessWidget {
   const CustomTabBar({super.key});
 
+  static const listItems = [
+    'Wearable',
+    'Laptops',
+    'Headphones',
+    'Phones',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 30, left: 30, right: 30),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          GestureDetector(
+      margin: EdgeInsets.only(top: Dimensions.edgeInsert30),
+      height: Dimensions.height35,
+      width: Dimensions.width340,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: listItems.length,
+        itemBuilder: (context, index) => Padding(
+          padding: EdgeInsets.all(Dimensions.edgeInsert10 - 2),
+          child: InkWell(
             onTap: () {},
             child: Text(
-              'Wearable',
+              listItems[index],
               style: GoogleFonts.raleway(
                 color: AppColors.whiteColor,
                 fontWeight: FontWeight.w600,
               ),
             ),
           ),
-          GestureDetector(
-            onTap: () {},
-            child: Text(
-              'Laptops',
-              style: GoogleFonts.raleway(
-                color: AppColors.whiteColor,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ),
-          GestureDetector(
-            onTap: () {},
-            child: Text(
-              'Headphones',
-              style: GoogleFonts.raleway(
-                color: AppColors.whiteColor,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ),
-          GestureDetector(
-            onTap: () {},
-            child: Text(
-              'Phones',
-              style: GoogleFonts.raleway(
-                color: AppColors.whiteColor,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }
