@@ -1,8 +1,8 @@
 import 'package:device_fusion/utils/app_colors.dart';
 import 'package:device_fusion/utils/app_dimensions.dart';
+import 'package:device_fusion/views/screens/Bottom_Navigation/bottom_navigation.dart';
 import 'package:device_fusion/views/screens/CreateAccount/create_account_screen.dart';
 import 'package:device_fusion/views/screens/Forgot_Password/forgot_password.dart';
-import 'package:device_fusion/views/screens/Homepage/home_page.dart';
 import 'package:device_fusion/views/widgets/button_widget.dart';
 import 'package:device_fusion/views/widgets/divider_widget.dart';
 import 'package:device_fusion/views/widgets/fake_bottom_sheet_widget.dart';
@@ -108,7 +108,7 @@ class LoginScreen extends StatelessWidget {
                               color: AppColors.whiteColor,
                               bgColor: AppColors.primaryColor,
                               onPressed: () {
-                                Get.to(() => const HomePage());
+                                Get.to(() => const BottomNavigationScreen());
                               },
                             ),
                           ),

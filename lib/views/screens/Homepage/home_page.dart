@@ -3,8 +3,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:device_fusion/constants/app_icons.dart';
 import 'package:device_fusion/utils/app_colors.dart';
 import 'package:device_fusion/utils/app_dimensions.dart';
-import 'package:device_fusion/views/screens/Add_Cart/add_to_cart_screen.dart';
-import 'package:device_fusion/views/screens/Categories/categories_screen.dart';
 import 'package:device_fusion/views/screens/Favorites/favorites_screen.dart';
 import 'package:device_fusion/views/screens/Profile/profile_screen.dart';
 import 'package:device_fusion/views/screens/Search/search_screen.dart';
@@ -33,212 +31,159 @@ class _HomePageState extends State<HomePage> {
   ];
 
   int currentPageIndex = 0;
-  int bottomCurrentIndex = 0;
-
-  final screens = [
-    const HomePage(),
-    const CategoriesScreen(),
-    const AddToCart(),
-    const ProfileScreen(),
-  ];
 
   @override
   Widget build(BuildContext context) {
-    // print(MediaQuery.of(context).size.width);
     return Scaffold(
       backgroundColor: AppColors.mainColor,
-      body: bottomCurrentIndex == 0
-          ? SingleChildScrollView(
-              child: Column(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              padding: EdgeInsets.only(top: Dimensions.edgeInsert40),
+              height: Dimensions.height120,
+              width: double.infinity,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Container(
-                    padding: EdgeInsets.only(top: Dimensions.edgeInsert40),
-                    height: Dimensions.height120,
-                    width: double.infinity,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            log('I\'m Hamburger');
-                          },
-                          child: Image.asset(
-                            'assets/images/Hamburger.png',
-                            width: Dimensions.hamburgerWidth30,
-                          ),
-                        ),
-                        SizedBox(
-                          width: Dimensions.sizedBoxH10,
-                        ),
-                        SizedBox(
-                          height: Dimensions.height48,
-                          width: Dimensions.width250,
-                          child: InkWell(
-                            onTap: () => Get.to(() => const SearchScreen()),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: AppColors.whiteColor,
-                                borderRadius: BorderRadius.circular(
-                                    Dimensions.sizedBoxH30),
-                                border: Border.all(
-                                  color: Colors.grey,
-                                ),
-                              ),
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                    child: Padding(
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal:
-                                              Dimensions.edgeInsert10 + 6),
-                                      child: Center(
-                                          child: CustomText(
-                                        text: 'search',
-                                        size: Dimensions.fontSize16,
-                                        fontWeight: FontWeight.normal,
-                                        color: AppColors.primaryColor,
-                                      )),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                        right: Dimensions.edgeInsert10 + 2),
-                                    child: Icon(
-                                      Icons.search,
-                                      size: Dimensions.iconSize34 - 10,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        IconButton(
-                          onPressed: () {
-                            log('Favorites');
-                            Get.to(() => const MyFavoritesScreen());
-                          },
-                          icon: Iconify(
-                            AppIcons.favoriteIcons,
-                            size: Dimensions.iconSize34,
-                            color: AppColors.whiteColor,
-                          ),
-                        ),
-                      ],
+                  GestureDetector(
+                    onTap: () {
+                      log('I\'m Hamburger');
+                    },
+                    child: Image.asset(
+                      'assets/images/Hamburger.png',
+                      width: Dimensions.hamburgerWidth30,
                     ),
                   ),
-
-                  //!Carosuel Banner.
-                  CarouselSlider(
-                    options: CarouselOptions(
-                      // autoPlay: true,
-                      onPageChanged: (index, reason) {
-                        setState(() {
-                          currentPageIndex = index;
-                        });
-                      },
-                      height: Dimensions.height240,
-                      aspectRatio: 5.0,
-                      enlargeCenterPage: true,
-                    ),
-                    items: bannerImage
-                        .map(
-                          (item) => Container(
-                            clipBehavior: Clip.hardEdge,
-                            margin: EdgeInsets.all(Dimensions.edgeInsert10),
-                            width: MediaQuery.of(context).size.width,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(
-                                Dimensions.borderRadius20,
+                  SizedBox(
+                    width: Dimensions.sizedBoxH10,
+                  ),
+                  SizedBox(
+                    height: Dimensions.height48,
+                    width: Dimensions.width250,
+                    child: InkWell(
+                      onTap: () => Get.to(() => const SearchScreen()),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: AppColors.whiteColor,
+                          borderRadius:
+                              BorderRadius.circular(Dimensions.sizedBoxH30),
+                          border: Border.all(
+                            color: Colors.grey,
+                          ),
+                        ),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: Dimensions.edgeInsert10 + 6),
+                                child: Center(
+                                    child: CustomText(
+                                  text: 'search',
+                                  size: Dimensions.fontSize16,
+                                  fontWeight: FontWeight.normal,
+                                  color: AppColors.primaryColor,
+                                )),
                               ),
                             ),
-                            child: Image.asset(
-                              item,
-                              fit: BoxFit.fill,
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  right: Dimensions.edgeInsert10 + 2),
+                              child: Icon(
+                                Icons.search,
+                                size: Dimensions.iconSize34 - 10,
+                              ),
                             ),
-                          ),
-                        )
-                        .toList(),
-                  ),
-                  DotsIndicator(
-                    dotsCount: bannerImage.length,
-                    position: currentPageIndex,
-                    decorator: DotsDecorator(
-                      size: const Size.square(9.0),
-                      activeSize: const Size(18.0, 9.0),
-                      activeShape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5.0),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                  //!Tab's item
-                  const CustomTabBar(),
-                  //!Stack widget item is here.
-                  const ProductCarousel(),
-                  //! See all Text here
-                  Padding(
-                    padding: EdgeInsets.only(right: Dimensions.edgeInsert10),
-                    child: Align(
-                      alignment: Alignment.bottomRight,
-                      child: GestureDetector(
-                        onTap: () {
-                          log('See all ->');
-                          Get.to(
-                            () => const ProfileScreen(),
-                          );
-                        },
-                        child: CustomText(
-                          text: 'See all ->',
-                          size: Dimensions.fontSize16,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
+                  IconButton(
+                    onPressed: () {
+                      log('Favorites');
+                      Get.to(() => const MyFavoritesScreen());
+                    },
+                    icon: Iconify(
+                      AppIcons.favoriteIcons,
+                      size: Dimensions.iconSize34,
+                      color: AppColors.whiteColor,
                     ),
                   ),
                 ],
               ),
-            )
-          : screens[bottomCurrentIndex],
-      //! Bottom Navigation Bar
-      bottomNavigationBar: BottomNavigationBar(
-        showUnselectedLabels: false,
-        iconSize: Dimensions.iconSize50 - 25,
-        currentIndex: bottomCurrentIndex,
-        onTap: (value) => setState(
-          () {
-            bottomCurrentIndex = value;
-          },
+            ),
+
+            //!Carosuel Banner.
+            CarouselSlider(
+              options: CarouselOptions(
+                // autoPlay: true,
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    currentPageIndex = index;
+                  });
+                },
+                height: Dimensions.height240,
+                aspectRatio: 5.0,
+                enlargeCenterPage: true,
+              ),
+              items: bannerImage
+                  .map(
+                    (item) => Container(
+                      clipBehavior: Clip.hardEdge,
+                      margin: EdgeInsets.all(Dimensions.edgeInsert10),
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(
+                          Dimensions.borderRadius20,
+                        ),
+                      ),
+                      child: Image.asset(
+                        item,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  )
+                  .toList(),
+            ),
+            DotsIndicator(
+              dotsCount: bannerImage.length,
+              position: currentPageIndex,
+              decorator: DotsDecorator(
+                size: const Size.square(9.0),
+                activeSize: const Size(18.0, 9.0),
+                activeShape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5.0),
+                ),
+              ),
+            ),
+            //!Tab's item
+            const CustomTabBar(),
+            //!Stack widget item is here.
+            const ProductCarousel(),
+            //! See all Text here
+            Padding(
+              padding: EdgeInsets.only(right: Dimensions.edgeInsert10),
+              child: Align(
+                alignment: Alignment.bottomRight,
+                child: GestureDetector(
+                  onTap: () {
+                    log('See all ->');
+                    Get.to(
+                      () => const ProfileScreen(),
+                    );
+                  },
+                  child: CustomText(
+                    text: 'See all ->',
+                    size: Dimensions.fontSize16,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
-        items: const [
-          BottomNavigationBarItem(
-            backgroundColor: AppColors.mainColor,
-            icon: Icon(
-              Icons.home,
-            ),
-            label: 'home',
-          ),
-          BottomNavigationBarItem(
-            backgroundColor: AppColors.mainColor,
-            icon: Icon(
-              Icons.category,
-            ),
-            label: 'category',
-          ),
-          BottomNavigationBarItem(
-            backgroundColor: AppColors.mainColor,
-            icon: Icon(
-              Icons.shopping_cart_outlined,
-            ),
-            label: 'cart',
-          ),
-          BottomNavigationBarItem(
-            backgroundColor: AppColors.mainColor,
-            icon: Icon(
-              Icons.supervised_user_circle_outlined,
-            ),
-            label: 'profile',
-          ),
-        ],
       ),
     );
   }
