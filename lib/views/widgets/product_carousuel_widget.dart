@@ -71,11 +71,11 @@ class _ProductCarouselState extends State<ProductCarousel> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 20),
+      margin: EdgeInsets.symmetric(vertical: Dimensions.sizedBoxH20),
       height: Dimensions.height300,
       child: PageView.builder(
         controller: _pageController,
-        itemCount: 4,
+        itemCount: 3,
         itemBuilder: (context, index) => Transform(
           transform: scalingUpandDown(index),
           child: Stack(
@@ -139,10 +139,12 @@ class _ProductCarouselState extends State<ProductCarousel> {
                 child: Container(
                   width: Dimensions.width64,
                   height: Dimensions.height64,
-                  decoration: const BoxDecoration(
-                    borderRadius:
-                        BorderRadius.only(bottomRight: Radius.circular(25)),
-                    color: Color(0xffd9d9d9),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      bottomRight:
+                          Radius.circular(Dimensions.borderRadius20 + 5),
+                    ),
+                    color: const Color(0xffd9d9d9),
                   ),
                   child: Icon(
                     Icons.chevron_right,

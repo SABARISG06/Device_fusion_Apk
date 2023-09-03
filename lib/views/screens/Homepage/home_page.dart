@@ -6,7 +6,6 @@ import 'package:device_fusion/utils/app_dimensions.dart';
 import 'package:device_fusion/views/screens/Favorites/favorites_screen.dart';
 import 'package:device_fusion/views/screens/Profile/profile_screen.dart';
 import 'package:device_fusion/views/screens/Search/search_screen.dart';
-import 'package:device_fusion/views/widgets/product_carousuel_widget.dart';
 import 'package:device_fusion/views/widgets/tab_button_widget.dart';
 import 'package:device_fusion/views/widgets/text_widget.dart';
 import 'package:dots_indicator/dots_indicator.dart';
@@ -158,10 +157,8 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            //!Tab's item
+            // //!Tab's item
             const CustomTabBar(),
-            //!Stack widget item is here.
-            const ProductCarousel(),
             //! See all Text here
             Padding(
               padding: EdgeInsets.only(right: Dimensions.edgeInsert10),

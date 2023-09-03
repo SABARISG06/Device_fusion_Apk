@@ -1,9 +1,9 @@
 import 'package:device_fusion/utils/app_colors.dart';
 import 'package:device_fusion/utils/app_dimensions.dart';
+import 'package:device_fusion/views/widgets/product_carousuel_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-class CustomTabBar extends StatelessWidget {
+class CustomTabBar extends StatefulWidget {
   const CustomTabBar({super.key});
 
   static const listItems = [
@@ -14,28 +14,47 @@ class CustomTabBar extends StatelessWidget {
   ];
 
   @override
+  State<CustomTabBar> createState() => _CustomTabBarState();
+}
+
+class _CustomTabBarState extends State<CustomTabBar>
+    with TickerProviderStateMixin {
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(top: Dimensions.edgeInsert30),
-      height: Dimensions.height35,
-      width: Dimensions.width340,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: listItems.length,
-        itemBuilder: (context, index) => Padding(
-          padding: EdgeInsets.all(Dimensions.edgeInsert10 - 2),
-          child: InkWell(
-            onTap: () {},
-            child: Text(
-              listItems[index],
-              style: GoogleFonts.raleway(
-                color: AppColors.whiteColor,
-                fontWeight: FontWeight.w600,
-              ),
+    TabController tabController = TabController(length: 4, vsync: this);
+    return Column(
+      children: [
+        TabBar(
+          isScrollable: true,
+          labelPadding: EdgeInsets.only(
+            top: Dimensions.edgeInsert10,
+            right: Dimensions.edgeInsert30 - 5,
+          ),
+          labelColor: AppColors.whiteColor,
+          unselectedLabelColor: AppColors.greyColor,
+          controller: tabController,
+          indicatorColor: AppColors.primaryColor,
+          dividerColor: AppColors.mainColor,
+          tabs: List.generate(
+            CustomTabBar.listItems.length,
+            (index) => Tab(
+              text: CustomTabBar.listItems[index],
             ),
           ),
         ),
-      ),
+        SizedBox(
+          height: Dimensions.height350,
+          child: TabBarView(
+            controller: tabController,
+            children: const [
+              ProductCarousel(),
+              ProductCarousel(),
+              ProductCarousel(),
+              ProductCarousel(),
+            ],
+          ),
+        )
+      ],
     );
   }
 }
