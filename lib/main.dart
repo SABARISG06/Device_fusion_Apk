@@ -1,3 +1,4 @@
+import 'package:device_fusion/repository/authentication_repository.dart';
 import 'package:device_fusion/views/screens/OnBoarding/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -7,7 +8,12 @@ import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
+      .then(
+    (value) => Get.put(
+      AuthenticationRepository(),
+    ),
+  );
   await SystemChrome.setPreferredOrientations(
     [
       DeviceOrientation.portraitUp,

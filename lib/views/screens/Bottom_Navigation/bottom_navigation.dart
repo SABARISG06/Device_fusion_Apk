@@ -3,7 +3,7 @@ import 'package:device_fusion/utils/app_dimensions.dart';
 import 'package:device_fusion/views/screens/Add_Cart/add_to_cart_screen.dart';
 import 'package:device_fusion/views/screens/Categories/categories_screen.dart';
 import 'package:device_fusion/views/screens/Homepage/home_page.dart';
-import 'package:device_fusion/views/screens/Profile/profile_screen.dart';
+import 'package:device_fusion/views/screens/Phonenumber/Profile/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavigationScreen extends StatefulWidget {

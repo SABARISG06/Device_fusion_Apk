@@ -1,3 +1,4 @@
+import 'package:device_fusion/controllers/signup_controller.dart';
 import 'package:device_fusion/utils/app_colors.dart';
 import 'package:device_fusion/utils/app_dimensions.dart';
 import 'package:device_fusion/views/screens/Bottom_Navigation/bottom_navigation.dart';
@@ -18,51 +19,59 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(SignUpController());
+    final formKey = GlobalKey<FormState>();
     // print(MediaQuery.of(context).size.height);
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: AppColors.mainColor,
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              CustomText(
+    return Scaffold(
+      backgroundColor: AppColors.mainColor,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 25.0),
+              child: CustomText(
                 text: 'Welcome Back',
                 size: Dimensions.fontSize32,
                 fontWeight: FontWeight.normal,
               ),
-              Image.asset(
-                'assets/images/Login_image.png',
-                width: Dimensions.width414,
-                height: Dimensions.height291,
-              ),
-              //! Bottom-Sheet
-              CustomFakeBottomSheet(
-                width: Dimensions.width413,
-                height: MediaQuery.of(context).size.height * 0.69,
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: Dimensions.sizedBoxH10,
-                    ),
-                    //*CustomeDivider is here.
-                    const CustomDivider(),
-                    SizedBox(
-                      height: Dimensions.sizedBoxH20,
-                    ),
-                    //!Login
-                    CustomText(
-                      text: 'Login',
-                      size: Dimensions.fontSize18,
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.blackColor,
-                    ),
-                    Container(
-                      padding: EdgeInsets.all(Dimensions.edgeInsert30),
+            ),
+            Image.asset(
+              'assets/images/Login_image.png',
+              width: Dimensions.width414,
+              height: Dimensions.height291,
+            ),
+            //! Bottom-Sheet
+            CustomFakeBottomSheet(
+              width: Dimensions.width413,
+              height: Dimensions.height535,
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: Dimensions.sizedBoxH10,
+                  ),
+                  //*CustomeDivider is here.
+                  const CustomDivider(),
+                  SizedBox(
+                    height: Dimensions.sizedBoxH20,
+                  ),
+                  //!Login
+                  CustomText(
+                    text: 'Login',
+                    size: Dimensions.fontSize18,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.blackColor,
+                  ),
+                  SizedBox(
+                    width: Dimensions.width314,
+                    child: Form(
+                      key: formKey,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           //!Email feild
                           CustomTextFormField(
+                            keyboardType: TextInputType.emailAddress,
+                            controller: controller.email,
                             text: 'Email',
                             prefixIcon: Icon(
                               IconlyLight.message,
@@ -74,6 +83,8 @@ class LoginScreen extends StatelessWidget {
                           ),
                           //!Password feild
                           CustomTextFormField(
+                            keyboardType: TextInputType.number,
+                            controller: controller.password,
                             obscureText: false,
                             text: 'Password',
                             prefixIcon: Icon(
@@ -128,12 +139,12 @@ class LoginScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                    )
-                  ],
-                ),
+                    ),
+                  )
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

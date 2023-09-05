@@ -1,10 +1,11 @@
 import 'dart:developer';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:device_fusion/constants/app_icons.dart';
+import 'package:device_fusion/repository/authentication_repository.dart';
 import 'package:device_fusion/utils/app_colors.dart';
 import 'package:device_fusion/utils/app_dimensions.dart';
 import 'package:device_fusion/views/screens/Favorites/favorites_screen.dart';
-import 'package:device_fusion/views/screens/Profile/profile_screen.dart';
+import 'package:device_fusion/views/screens/Phonenumber/Profile/profile_screen.dart';
 import 'package:device_fusion/views/screens/Search/search_screen.dart';
 import 'package:device_fusion/views/widgets/tab_button_widget.dart';
 import 'package:device_fusion/views/widgets/text_widget.dart';
@@ -48,6 +49,8 @@ class _HomePageState extends State<HomePage> {
                   GestureDetector(
                     onTap: () {
                       log('I\'m Hamburger');
+                      AuthenticationRepository.instance.logout();
+                      // Get.to(() => HiddenDrawer());
                     },
                     child: Image.asset(
                       'assets/images/Hamburger.png',
