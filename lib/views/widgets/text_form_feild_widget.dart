@@ -2,10 +2,11 @@ import 'package:device_fusion/utils/app_colors.dart';
 import 'package:device_fusion/utils/app_dimensions.dart';
 import 'package:device_fusion/views/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
-    super.key,
+    Key? key,
     required this.text,
     required this.prefixIcon,
     this.suffix,
@@ -13,16 +14,25 @@ class CustomTextFormField extends StatelessWidget {
     this.obscuringCharacter = '*',
     this.controller,
     this.keyboardType,
-  });
+    this.maxLength,
+    this.inputFormatters,
+    this.onChanged,
+    this.onSaved,
+    this.validator,
+  }) : super(key: key);
 
   final String text;
-
   final Widget prefixIcon;
   final Widget? suffix;
   final bool obscureText;
   final String obscuringCharacter;
   final TextEditingController? controller;
   final TextInputType? keyboardType;
+  final int? maxLength;
+  final List<TextInputFormatter>? inputFormatters;
+  final Function(String)? onChanged;
+  final Function(String?)? onSaved;
+  final Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +51,13 @@ class CustomTextFormField extends StatelessWidget {
       ),
       obscureText: obscureText,
       obscuringCharacter: obscuringCharacter,
+      maxLength: maxLength,
+      inputFormatters: inputFormatters,
+      onChanged: onChanged,
+      onSaved: onSaved,
+      validator: (value) {
+        return validator?.call(value);
+      },
     );
   }
 }

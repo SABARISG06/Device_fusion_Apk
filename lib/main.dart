@@ -1,3 +1,7 @@
+import 'package:device_fusion/constants/app_pages.dart';
+import 'package:device_fusion/constants/app_routes.dart';
+import 'package:device_fusion/controllers/login_controller.dart';
+import 'package:device_fusion/controllers/signup_controller.dart';
 import 'package:device_fusion/repository/authentication_repository.dart';
 import 'package:device_fusion/views/screens/OnBoarding/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +11,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
 void main() async {
+  Get.put(LoginController());
+  Get.put(SignUpController());
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
       .then(
@@ -14,12 +20,10 @@ void main() async {
       AuthenticationRepository(),
     ),
   );
-  await SystemChrome.setPreferredOrientations(
-    [
-      DeviceOrientation.portraitUp,
-      DeviceOrientation.portraitDown,
-    ],
-  );
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   runApp(const MyApp());
 }
 
@@ -33,8 +37,10 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         fontFamily: 'Raleway',
       ),
-      debugShowCheckedModeBanner: false,
       home: const SplashScreen(),
+      debugShowCheckedModeBanner: false,
+      initialRoute: AppPages.loginScreen,
+      getPages: AppRoutes.getPages(),
     );
   }
 }

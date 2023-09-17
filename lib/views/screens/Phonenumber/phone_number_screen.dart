@@ -1,4 +1,6 @@
 import 'package:country_code_picker/country_code_picker.dart';
+import 'package:device_fusion/controllers/otp_controller.dart';
+import 'package:device_fusion/controllers/signup_controller.dart';
 import 'package:device_fusion/utils/app_colors.dart';
 import 'package:device_fusion/utils/app_dimensions.dart';
 import 'package:device_fusion/views/screens/Phonenumber/otp_verification_screen.dart';
@@ -6,16 +8,20 @@ import 'package:device_fusion/views/widgets/button_widget.dart';
 import 'package:device_fusion/views/widgets/divider_widget.dart';
 import 'package:device_fusion/views/widgets/fake_bottom_sheet_widget.dart';
 import 'package:device_fusion/views/widgets/text_form_feild_widget.dart';
+import 'package:device_fusion/views/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
 
 class PhoneNumberScreen extends StatelessWidget {
-  const PhoneNumberScreen({super.key});
+  PhoneNumberScreen({super.key});
+  // Allow up to 10 numeric characters
+  // final RegExp _numericRegExp = RegExp(r'^[0-9]{0,10}$');
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(SignUpController());
     return Scaffold(
       body: Container(
         color: AppColors.mainColor,
@@ -39,11 +45,11 @@ class PhoneNumberScreen extends StatelessWidget {
                       padding: EdgeInsets.all(Dimensions.edgeInsert30),
                       child: Column(
                         children: [
-                          Text(
-                            'Enter Your 10 Digits Number',
-                            style: GoogleFonts.raleway(
-                              fontSize: Dimensions.fontSize18,
-                            ),
+                          CustomText(
+                            text: 'Enter Your 10 Digits Number',
+                            size: Dimensions.fontSize18,
+                            fontWeight: FontWeight.w600,
+                            color: AppColors.blackColor,
                           ),
                           SizedBox(
                             height: Dimensions.sizedBoxH50,
@@ -60,18 +66,24 @@ class PhoneNumberScreen extends StatelessWidget {
                             height: Dimensions.sizedBoxH50,
                           ),
                           //!mobile number field.
-                          const CustomTextFormField(
+                          CustomTextFormField(
                             text: 'Enter your mobile number',
-                            prefixIcon: Icon(IconlyLight.call),
+                            prefixIcon: const Icon(IconlyLight.call),
+                            keyboardType: TextInputType.number,
+                            maxLength: 10,
+                            // inputFormatters: [
+                            //   FilteringTextInputFormatter.allow(_numericRegExp)
+                            // ],
+                            // controller: controller.phoneNumber,
                           ),
                           SizedBox(
                             height: Dimensions.sizedBoxH20,
                           ),
-                          Text(
-                            'We will send you one time password (OTP)',
-                            style: GoogleFonts.raleway(
-                              fontSize: Dimensions.fontSize16,
-                            ),
+                          CustomText(
+                            text: 'We will send you one time password (OTP)',
+                            size: Dimensions.fontSize16,
+                            fontWeight: FontWeight.normal,
+                            color: AppColors.blackColor,
                           ),
                           SizedBox(
                             height: Dimensions.sizedBoxH50 + 30,
@@ -80,8 +92,11 @@ class PhoneNumberScreen extends StatelessWidget {
                             text: 'Submit',
                             color: AppColors.whiteColor,
                             bgColor: AppColors.primaryColor,
-                            onPressed: () {
-                              Get.to(() => const OTPVerificationScreen());
+                            onPressed: () async {
+                              // String otp = controller.text;
+                              Get.to(
+                                () => const OTPVerificationScreen(),
+                              );
                             },
                           )
                         ],

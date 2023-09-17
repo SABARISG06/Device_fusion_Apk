@@ -1,4 +1,5 @@
 import 'package:device_fusion/constants/app_icons.dart';
+import 'package:device_fusion/utils/app_dimensions.dart';
 import 'package:device_fusion/views/screens/Phonenumber/phone_number_screen.dart';
 
 import 'package:flutter/material.dart';
@@ -17,32 +18,32 @@ class OtherLoginIcon extends StatelessWidget {
         //Todo:- Need to rotate listview builder.
         IconButton(
           onPressed: () {},
-          icon: const Iconify(
+          icon: Iconify(
             AppIcons.facebookIcon,
-            size: 30,
+            size: Dimensions.sizedBoxH30,
           ),
         ),
         IconButton(
           onPressed: () {},
-          icon: const Iconify(
+          icon: Iconify(
             AppIcons.googleIcon,
-            size: 30,
+            size: Dimensions.sizedBoxH30,
           ),
         ),
         IconButton(
           onPressed: () {},
-          icon: const Iconify(
+          icon: Iconify(
             AppIcons.twitterIcon,
-            size: 30,
+            size: Dimensions.sizedBoxH30,
           ),
         ),
         IconButton(
           onPressed: () {
-            Get.to(() => const PhoneNumberScreen());
+            Get.to(() => PhoneNumberScreen());
           },
-          icon: const Iconify(
+          icon: Iconify(
             AppIcons.phoneIcon,
-            size: 30,
+            size: Dimensions.sizedBoxH30,
           ),
         ),
       ],

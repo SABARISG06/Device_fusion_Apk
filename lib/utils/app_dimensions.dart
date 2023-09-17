@@ -34,6 +34,7 @@ class Dimensions {
   static double sizedBoxW10 = screenWidth / 41.1;
 
   //?Container
+  static double height8 = screenHeight / 111.25;
   static double height64 = screenHeight / 13.90;
   static double width64 = screenWidth / 6.42;
 
