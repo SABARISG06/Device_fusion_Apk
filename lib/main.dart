@@ -1,5 +1,6 @@
 import 'package:device_fusion/constants/app_pages.dart';
 import 'package:device_fusion/constants/app_routes.dart';
+import 'package:device_fusion/controllers/bottom_navigation_controller.dart';
 import 'package:device_fusion/controllers/login_controller.dart';
 import 'package:device_fusion/controllers/signup_controller.dart';
 import 'package:device_fusion/repository/authentication_repository.dart';
@@ -13,6 +14,7 @@ import 'firebase_options.dart';
 void main() async {
   Get.put(LoginController());
   Get.put(SignUpController());
+  Get.put(BottomNavigationController());
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
       .then(

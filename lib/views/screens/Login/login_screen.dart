@@ -46,7 +46,6 @@ class LoginScreen extends StatelessWidget {
                     right: Dimensions.edgeInsert50,
                   ),
                   child: Form(
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
                     key: LoginController.instance.loginFormKey,
                     child: Column(
                       children: [
