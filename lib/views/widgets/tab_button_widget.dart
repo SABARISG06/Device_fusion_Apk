@@ -1,27 +1,15 @@
+import 'package:device_fusion/controllers/tab_bar_controller.dart';
 import 'package:device_fusion/utils/app_colors.dart';
 import 'package:device_fusion/utils/app_dimensions.dart';
 import 'package:device_fusion/views/widgets/product_carousuel_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class CustomTabBar extends StatefulWidget {
+class CustomTabBar extends StatelessWidget {
   const CustomTabBar({super.key});
 
-  static const listItems = [
-    'Wearable',
-    'Laptops',
-    'Headphones',
-    'Phones',
-  ];
-
-  @override
-  State<CustomTabBar> createState() => _CustomTabBarState();
-}
-
-class _CustomTabBarState extends State<CustomTabBar>
-    with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
-    TabController tabController = TabController(length: 4, vsync: this);
     return Column(
       children: [
         TabBar(
@@ -32,20 +20,20 @@ class _CustomTabBarState extends State<CustomTabBar>
           ),
           labelColor: AppColors.whiteColor,
           unselectedLabelColor: AppColors.greyColor,
-          controller: tabController,
+          controller: TabBarController.instance.controller,
           indicatorColor: AppColors.primaryColor,
           dividerColor: AppColors.mainColor,
           tabs: List.generate(
-            CustomTabBar.listItems.length,
+            TabBarController.instance.listItems.length,
             (index) => Tab(
-              text: CustomTabBar.listItems[index],
+              text: TabBarController.instance.listItems[index],
             ),
           ),
         ),
         SizedBox(
           height: Dimensions.height350,
           child: TabBarView(
-            controller: tabController,
+            controller: TabBarController.instance.controller,
             children: const [
               ProductCarousel(),
               ProductCarousel(),
