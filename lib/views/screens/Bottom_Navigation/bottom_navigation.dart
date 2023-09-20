@@ -1,6 +1,7 @@
+import 'package:device_fusion/constants/app_colors.dart';
+import 'package:device_fusion/constants/app_dimensions.dart';
 import 'package:device_fusion/controllers/bottom_navigation_controller.dart';
-import 'package:device_fusion/utils/app_colors.dart';
-import 'package:device_fusion/utils/app_dimensions.dart';
+import 'package:device_fusion/controllers/hidden_drawer_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,31 +9,45 @@ class BottomNavigationScreen extends StatelessWidget {
   const BottomNavigationScreen({super.key});
 
   final Color _selectedColor = AppColors.primaryColor;
-  final Color _unselectedColor = Colors.grey;
+  final Color _unselectedColor = AppColors.greyColor;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Obx(
-        () => BottomNavigationController.instance.screens[
-            BottomNavigationController.instance.bottomCurrentIndex.value],
+        () {
+          final isDrawerOpened = HiddenController.instance.isDrawerOpen.value;
+
+          return AbsorbPointer(
+            absorbing: isDrawerOpened,
+            child: BottomNavigationController.instance.screens[
+                BottomNavigationController.instance.bottomCurrentIndex.value],
+          );
+        },
       ),
       bottomNavigationBar: Obx(
-        () => BottomNavigationBar(
-          showUnselectedLabels: false,
-          currentIndex:
-              BottomNavigationController.instance.bottomCurrentIndex.value,
-          onTap: (index) {
-            BottomNavigationController.instance.bottomCurrentIndex.value =
-                index;
-          },
-          items: <BottomNavigationBarItem>[
-            _buildNavItem(Icons.home, 'Home', 0),
-            _buildNavItem(Icons.category, 'Category', 1),
-            _buildNavItem(Icons.shopping_cart_outlined, 'Cart', 2),
-            _buildNavItem(Icons.supervised_user_circle_outlined, 'Profile', 3),
-          ],
-        ),
+        () {
+          final isDrawerOpened = HiddenController.instance.isDrawerOpen.value;
+          return AbsorbPointer(
+            absorbing: isDrawerOpened,
+            child: BottomNavigationBar(
+              showUnselectedLabels: false,
+              currentIndex:
+                  BottomNavigationController.instance.bottomCurrentIndex.value,
+              onTap: (index) {
+                BottomNavigationController.instance.bottomCurrentIndex.value =
+                    index;
+              },
+              items: <BottomNavigationBarItem>[
+                _buildNavItem(Icons.home, 'Home', 0),
+                _buildNavItem(Icons.category, 'Category', 1),
+                _buildNavItem(Icons.shopping_cart_outlined, 'Cart', 2),
+                _buildNavItem(
+                    Icons.supervised_user_circle_outlined, 'Profile', 3),
+              ],
+            ),
+          );
+        },
       ),
     );
   }

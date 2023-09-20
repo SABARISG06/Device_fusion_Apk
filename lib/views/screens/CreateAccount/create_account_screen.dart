@@ -1,6 +1,6 @@
+import 'package:device_fusion/constants/app_colors.dart';
+import 'package:device_fusion/constants/app_dimensions.dart';
 import 'package:device_fusion/controllers/signup_controller.dart';
-import 'package:device_fusion/utils/app_colors.dart';
-import 'package:device_fusion/utils/app_dimensions.dart';
 import 'package:device_fusion/views/widgets/button_widget.dart';
 import 'package:device_fusion/views/widgets/divider_widget.dart';
 import 'package:device_fusion/views/widgets/fake_bottom_sheet_widget.dart';

@@ -1,21 +1,17 @@
-import 'package:device_fusion/controllers/otp_controller.dart';
-import 'package:device_fusion/utils/app_colors.dart';
-import 'package:device_fusion/utils/app_dimensions.dart';
+import 'package:device_fusion/constants/app_colors.dart';
+import 'package:device_fusion/constants/app_dimensions.dart';
 import 'package:device_fusion/views/widgets/button_widget.dart';
 import 'package:device_fusion/views/widgets/divider_widget.dart';
 import 'package:device_fusion/views/widgets/fake_bottom_sheet_widget.dart';
 import 'package:device_fusion/views/widgets/otp_formfield_widget.dart';
 import 'package:device_fusion/views/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class OTPVerificationScreen extends StatelessWidget {
   const OTPVerificationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(OTPController());
-    String? otp;
     return Scaffold(
       body: Container(
         color: AppColors.mainColor,
@@ -62,10 +58,7 @@ class OTPVerificationScreen extends StatelessWidget {
                           ),
                           //!OTP fields.
                           OtpFields(
-                            onSubmit: (code) {
-                              otp = code;
-                              // OTPController.instance.verifyOTP(otp!);
-                            },
+                            onSubmit: (code) {},
                           ),
 
                           SizedBox(

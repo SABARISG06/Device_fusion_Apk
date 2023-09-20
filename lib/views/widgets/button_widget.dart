@@ -1,4 +1,4 @@
-import 'package:device_fusion/utils/app_dimensions.dart';
+import 'package:device_fusion/constants/app_dimensions.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

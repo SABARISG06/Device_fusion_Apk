@@ -1,6 +1,6 @@
 import 'dart:developer';
-import 'package:device_fusion/utils/app_colors.dart';
-import 'package:device_fusion/utils/app_dimensions.dart';
+import 'package:device_fusion/constants/app_colors.dart';
+import 'package:device_fusion/constants/app_dimensions.dart';
 import 'package:device_fusion/views/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';

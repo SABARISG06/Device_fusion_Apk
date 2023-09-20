@@ -1,9 +1,8 @@
+import 'package:device_fusion/constants/app_colors.dart';
+import 'package:device_fusion/constants/app_dimensions.dart';
 import 'package:device_fusion/controllers/tab_bar_controller.dart';
-import 'package:device_fusion/utils/app_colors.dart';
-import 'package:device_fusion/utils/app_dimensions.dart';
 import 'package:device_fusion/views/widgets/product_carousuel_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class CustomTabBar extends StatelessWidget {
   const CustomTabBar({super.key});

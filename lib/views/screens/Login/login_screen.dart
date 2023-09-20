@@ -1,6 +1,6 @@
+import 'package:device_fusion/constants/app_colors.dart';
+import 'package:device_fusion/constants/app_dimensions.dart';
 import 'package:device_fusion/controllers/login_controller.dart';
-import 'package:device_fusion/utils/app_colors.dart';
-import 'package:device_fusion/utils/app_dimensions.dart';
 import 'package:device_fusion/views/screens/CreateAccount/create_account_screen.dart';
 import 'package:device_fusion/views/screens/Forgot_Password/forgot_password.dart';
 import 'package:device_fusion/views/widgets/button_widget.dart';

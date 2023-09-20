@@ -1,6 +1,6 @@
+import 'package:device_fusion/constants/app_colors.dart';
+import 'package:device_fusion/constants/app_dimensions.dart';
 import 'package:device_fusion/constants/app_icons.dart';
-import 'package:device_fusion/utils/app_colors.dart';
-import 'package:device_fusion/utils/app_dimensions.dart';
 import 'package:device_fusion/views/widgets/fake_bottom_sheet_widget.dart';
 import 'package:device_fusion/views/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
@@ -70,7 +70,7 @@ class _SingleProductScreenState extends State<SingleProductScreen> {
                   onPressed: () {},
                   icon: Iconify(
                     AppIcons.favoriteIcons,
-                    size: Dimensions.iconSize34,
+                    size: Dimensions.iconSize34 - 2,
                     color: AppColors.whiteColor,
                   ),
                 ),

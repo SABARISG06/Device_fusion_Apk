@@ -1,9 +1,9 @@
 import 'dart:developer';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:device_fusion/constants/app_colors.dart';
+import 'package:device_fusion/constants/app_dimensions.dart';
 import 'package:device_fusion/constants/app_icons.dart';
-import 'package:device_fusion/repository/authentication_repository.dart';
-import 'package:device_fusion/utils/app_colors.dart';
-import 'package:device_fusion/utils/app_dimensions.dart';
+import 'package:device_fusion/controllers/hidden_drawer_controller.dart';
 import 'package:device_fusion/views/screens/Favorites/favorites_screen.dart';
 import 'package:device_fusion/views/screens/Profile/profile_screen.dart';
 import 'package:device_fusion/views/screens/Search/search_screen.dart';
@@ -40,12 +40,9 @@ class HomePage extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  GestureDetector(
-                    onTap: () {
-                      log('I\'m Hamburger');
-                      AuthenticationRepository.instance.logout();
-                      // Get.to(() => HiddenDrawer());
-                    },
+                  //!Humburger-Icon
+                  InkWell(
+                    onTap: () => HiddenController.instance.toggleDrawer(),
                     child: Image.asset(
                       'assets/images/Hamburger.png',
                       width: Dimensions.hamburgerWidth30,
@@ -57,6 +54,7 @@ class HomePage extends StatelessWidget {
                   SizedBox(
                     height: Dimensions.height48,
                     width: Dimensions.width250,
+                    //!Search-Icon
                     child: InkWell(
                       onTap: () => Get.to(() => const SearchScreen()),
                       child: Container(

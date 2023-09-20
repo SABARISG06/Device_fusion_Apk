@@ -1,4 +1,4 @@
-import 'package:device_fusion/utils/app_colors.dart';
+import 'package:device_fusion/constants/app_colors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 

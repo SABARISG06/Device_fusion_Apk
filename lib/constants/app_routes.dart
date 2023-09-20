@@ -1,5 +1,6 @@
 import 'package:device_fusion/constants/app_pages.dart';
 import 'package:device_fusion/views/screens/CreateAccount/create_account_screen.dart';
+import 'package:device_fusion/views/screens/Favorites/favorites_screen.dart';
 import 'package:device_fusion/views/screens/Homepage/home_page.dart';
 import 'package:device_fusion/views/screens/Login/login_screen.dart';
 import 'package:device_fusion/views/screens/NoConnection/no_connection_screen.dart';
@@ -55,6 +56,10 @@ class AppRoutes {
       GetPage(
         name: AppPages.noConnectionScreen,
         page: () => const NoConnectionScreen(),
+      ),
+      GetPage(
+        name: AppPages.favoriteScreen,
+        page: () => const MyFavoritesScreen(),
       ),
     ];
   }

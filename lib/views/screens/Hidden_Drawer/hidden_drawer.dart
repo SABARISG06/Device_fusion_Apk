@@ -1,67 +1,49 @@
-// import 'package:flutter/material.dart';
+import 'package:device_fusion/constants/app_dimensions.dart';
+import 'package:device_fusion/controllers/hidden_drawer_controller.dart';
+import 'package:device_fusion/views/screens/Bottom_Navigation/bottom_navigation.dart';
+import 'package:device_fusion/views/widgets/hidden_drawer_widget.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-// class HiddenDrawer extends StatefulWidget {
-//   const HiddenDrawer({super.key});
+class HiddenDrawer extends StatelessWidget {
+  const HiddenDrawer({super.key});
 
-//   @override
-//   State<HiddenDrawer> createState() => _HiddenDrawerState();
-// }
-
-// class _HiddenDrawerState extends State<HiddenDrawer> {
-//   bool isDrawerOpen = false;
-
-//   void toggleDrawer() {
-//     setState(() {
-//       isDrawerOpen = !isDrawerOpen;
-//     });
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('Hidden Drawer with Animation'),
-//         leading: IconButton(
-//           icon: Icon(Icons.menu),
-//           onPressed: toggleDrawer,
-//         ),
-//       ),
-//       body: Center(
-//         child: Text('Main Content'),
-//       ),
-//       drawer: AnimatedContainer(
-//         duration: Duration(milliseconds: 300),
-//         transform: Matrix4.translationValues(
-//           isDrawerOpen ? 0 : -MediaQuery.of(context).size.width * 0.7,
-//           0,
-//           0,
-//         ),
-//         child: Drawer(
-//           child: ListView(
-//             padding: EdgeInsets.zero,
-//             children: <Widget>[
-//               DrawerHeader(
-//                 child: Text('Drawer Header'),
-//                 decoration: BoxDecoration(
-//                   color: Colors.blue,
-//                 ),
-//               ),
-//               ListTile(
-//                 title: Text('Item 1'),
-//                 onTap: () {
-//                   // Handle item 1 tap
-//                 },
-//               ),
-//               ListTile(
-//                 title: Text('Item 2'),
-//                 onTap: () {
-//                   // Handle item 2 tap
-//                 },
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: [
+          const DrawerWidget(),
+          WillPopScope(
+            onWillPop: () async {
+              if (HiddenController.instance.isDrawerOpen.value) {
+                HiddenController.instance.closeDrawer();
+                return false;
+              } else {
+                return true;
+              }
+            },
+            child: Obx(
+              () => AnimatedContainer(
+                duration: const Duration(milliseconds: 500),
+                transform: Matrix4.translationValues(
+                  HiddenController.instance.xOffset.value,
+                  HiddenController.instance.yOffset.value,
+                  0,
+                )..scale(HiddenController.instance.scaleFactor.value),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(
+                    HiddenController.instance.isDrawerOpen.value
+                        ? Dimensions.edgeInsert40
+                        : 0,
+                  ),
+                  child: const BottomNavigationScreen(),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

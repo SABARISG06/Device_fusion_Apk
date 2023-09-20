@@ -1,5 +1,5 @@
-import 'package:device_fusion/utils/app_colors.dart';
-import 'package:device_fusion/utils/app_dimensions.dart';
+import 'package:device_fusion/constants/app_colors.dart';
+import 'package:device_fusion/constants/app_dimensions.dart';
 import 'package:flutter/material.dart';
 
 class CustomFakeBottomSheet extends StatelessWidget {

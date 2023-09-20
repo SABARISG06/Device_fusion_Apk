@@ -1,9 +1,8 @@
 import 'dart:developer';
-
+import 'package:device_fusion/constants/app_colors.dart';
 import 'package:device_fusion/repository/expections/email_password_failure.dart';
 import 'package:device_fusion/repository/expections/login_exception.dart';
-import 'package:device_fusion/utils/app_colors.dart';
-import 'package:device_fusion/views/screens/Bottom_Navigation/bottom_navigation.dart';
+import 'package:device_fusion/views/screens/Hidden_Drawer/hidden_drawer.dart';
 import 'package:device_fusion/views/screens/Login/login_screen.dart';
 import 'package:device_fusion/views/screens/OnBoarding/splash_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -30,7 +29,7 @@ class AuthenticationRepository extends GetxController {
   _setInitialScreen(User? user) {
     user == null
         ? Get.offAll(() => const SplashScreen())
-        : Get.off(() => const BottomNavigationScreen());
+        : Get.off(() => const HiddenDrawer());
   }
 
   //! Create a account.
@@ -42,8 +41,8 @@ class AuthenticationRepository extends GetxController {
         password: password,
       );
       firebaseUser.value != null
-          ? Get.offAll(() =>
-              const BottomNavigationScreen()) //Todo: Need to change back to login
+          ? Get.offAll(
+              () => const HiddenDrawer()) //Todo: Need to change back to login
           : Get.to(() => const SplashScreen());
       Get.snackbar(
         email,

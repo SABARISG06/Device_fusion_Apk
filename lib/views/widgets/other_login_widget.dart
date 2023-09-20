@@ -1,7 +1,6 @@
+import 'package:device_fusion/constants/app_dimensions.dart';
 import 'package:device_fusion/constants/app_icons.dart';
-import 'package:device_fusion/utils/app_dimensions.dart';
 import 'package:device_fusion/views/screens/Phonenumber/phone_number_screen.dart';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';

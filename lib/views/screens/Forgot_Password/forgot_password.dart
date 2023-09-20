@@ -1,4 +1,4 @@
-import 'package:device_fusion/utils/app_colors.dart';
+import 'package:device_fusion/constants/app_colors.dart';
 import 'package:device_fusion/views/screens/Login/login_screen.dart';
 import 'package:device_fusion/views/widgets/button_widget.dart';
 import 'package:device_fusion/views/widgets/divider_widget.dart';

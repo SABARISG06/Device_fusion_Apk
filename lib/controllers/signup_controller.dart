@@ -73,7 +73,7 @@ class SignUpController extends GetxController {
     return null;
   }
 
-  void clearTextfield() {
+  void clearTextField() {
     emailController.clear();
     passwordController.clear();
     userNameController.clear();
@@ -85,6 +85,9 @@ class SignUpController extends GetxController {
       signupFormKey.currentState!.save();
       createUserWithEmailAndPassword(email, password);
       log('Email: $email Password: $password');
+      Future.delayed(const Duration(seconds: 3), () {
+        clearTextField();
+      });
     }
   }
 }
