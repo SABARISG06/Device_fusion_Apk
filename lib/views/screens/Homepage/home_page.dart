@@ -112,7 +112,7 @@ class HomePage extends StatelessWidget {
             //!Carosuel Banner.
             CarouselSlider(
               options: CarouselOptions(
-                // autoPlay: true,
+                autoPlay: true,
                 onPageChanged: (index, reason) {
                   currentPageIndex.value = index;
                 },

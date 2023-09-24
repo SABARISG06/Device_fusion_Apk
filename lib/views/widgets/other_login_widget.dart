@@ -14,7 +14,7 @@ class OtherLoginIcon extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        //Todo:- Need to rotate listview builder.
+        //Todo:- Need to change in listview builder.
         IconButton(
           onPressed: () {},
           icon: Iconify(
@@ -38,7 +38,7 @@ class OtherLoginIcon extends StatelessWidget {
         ),
         IconButton(
           onPressed: () {
-            Get.to(() => PhoneNumberScreen());
+            Get.to(() => const PhoneNumberScreen());
           },
           icon: Iconify(
             AppIcons.phoneIcon,

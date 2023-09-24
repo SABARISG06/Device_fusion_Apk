@@ -25,13 +25,13 @@ class CreateAccount extends StatelessWidget {
             Image.asset(
               'assets/images/create_account.png',
               width: Dimensions.width414,
-              height: Dimensions.height291,
+              height: Dimensions.height291 + 9,
             ),
             CustomFakeBottomSheet(
               width: Dimensions.width413,
-              height: Dimensions.height620 + 58,
-              child: Padding(
-                padding: EdgeInsets.only(
+              height: Dimensions.height620 + 60,
+              child: Container(
+                margin: EdgeInsets.only(
                   top: Dimensions.edgeInsert30,
                   left: Dimensions.edgeInsert50,
                   right: Dimensions.edgeInsert50,
@@ -52,6 +52,9 @@ class CreateAccount extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                         color: AppColors.blackColor,
                       ),
+                      SizedBox(
+                        height: Dimensions.sizedBoxH20,
+                      ),
                       //!User Name
                       CustomTextFormField(
                         keyboardType: TextInputType.name,
@@ -65,7 +68,7 @@ class CreateAccount extends StatelessWidget {
                             SignUpController.instance.userName = value!,
                       ),
                       SizedBox(
-                        height: Dimensions.sizedBoxH10,
+                        height: Dimensions.sizedBoxH20,
                       ),
                       //!Email field
                       CustomTextFormField(
@@ -79,7 +82,7 @@ class CreateAccount extends StatelessWidget {
                             SignUpController.instance.email = value!,
                       ),
                       SizedBox(
-                        height: Dimensions.sizedBoxH10,
+                        height: Dimensions.sizedBoxH20,
                       ),
                       //!Password field
                       CustomTextFormField(
@@ -95,7 +98,7 @@ class CreateAccount extends StatelessWidget {
                             SignUpController.instance.password = value!,
                       ),
                       SizedBox(
-                        height: Dimensions.sizedBoxH10,
+                        height: Dimensions.sizedBoxH20,
                       ),
                       //!Confirm Password field
                       Obx(
@@ -126,7 +129,7 @@ class CreateAccount extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: Dimensions.sizedBoxH20,
+                        height: Dimensions.sizedBoxH30,
                       ),
                       CustomElevatedBtn(
                         text: 'Create account',

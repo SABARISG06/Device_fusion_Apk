@@ -1,7 +1,10 @@
 import 'package:device_fusion/constants/app_colors.dart';
 import 'package:device_fusion/constants/app_dimensions.dart';
 import 'package:device_fusion/controllers/tab_bar_controller.dart';
-import 'package:device_fusion/views/widgets/product_carousuel_widget.dart';
+import 'package:device_fusion/views/widgets/headphone_widget.dart';
+import 'package:device_fusion/views/widgets/laptop_widget.dart';
+import 'package:device_fusion/views/widgets/phones_widget.dart';
+import 'package:device_fusion/views/widgets/wearable_widget.dart';
 import 'package:flutter/material.dart';
 
 class CustomTabBar extends StatelessWidget {
@@ -34,10 +37,10 @@ class CustomTabBar extends StatelessWidget {
           child: TabBarView(
             controller: TabBarController.instance.controller,
             children: const [
-              ProductCarousel(),
-              ProductCarousel(),
-              ProductCarousel(),
-              ProductCarousel(),
+              WearableCarousel(),
+              LaptopCarousel(),
+              HeadPhonesCarousel(),
+              PhonesCarousel(),
             ],
           ),
         )

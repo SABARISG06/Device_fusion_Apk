@@ -1,6 +1,6 @@
 import 'package:device_fusion/constants/app_colors.dart';
 import 'package:device_fusion/constants/app_dimensions.dart';
-import 'package:device_fusion/views/screens/Single_Product_temp/singleproduct_screen.dart';
+import 'package:device_fusion/views/screens/Favorites/dummy.dart';
 import 'package:device_fusion/views/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -68,7 +68,7 @@ class MyFavoritesScreen extends StatelessWidget {
                   fixedSize: Size(Dimensions.width180, Dimensions.height70),
                 ),
                 onPressed: () {
-                  Get.to(() => const SingleProductScreen());
+                  Get.to(() => const Dummy());
                 },
                 icon: Icon(
                   IconlyLight.home,

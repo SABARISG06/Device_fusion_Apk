@@ -8,7 +8,7 @@ class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
     Key? key,
     required this.text,
-    required this.prefixIcon,
+    this.prefixIcon,
     this.suffix,
     this.obscureText = false,
     this.obscuringCharacter = '*',
@@ -22,7 +22,7 @@ class CustomTextFormField extends StatelessWidget {
   }) : super(key: key);
 
   final String text;
-  final Widget prefixIcon;
+  final Widget? prefixIcon;
   final Widget? suffix;
   final bool obscureText;
   final String obscuringCharacter;

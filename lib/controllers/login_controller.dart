@@ -1,8 +1,5 @@
 import 'dart:developer';
-
 import 'package:device_fusion/repository/authentication_repository.dart';
-// ignore: unused_import
-import 'package:device_fusion/views/screens/Login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

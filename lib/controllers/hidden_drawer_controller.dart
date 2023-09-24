@@ -40,11 +40,8 @@ class HiddenController extends GetxController {
 
   void switchingPage(items) {
     switch (items.title) {
-      case 'Home':
-        Get.toNamed(AppPages.homeScreen);
-        break;
       case 'Basket':
-        Get.toNamed(AppPages.basketScreen);
+        Get.toNamed(AppPages.addToCart);
         break;
       case 'Favorites':
         Get.toNamed(AppPages.favoriteScreen);
@@ -59,6 +56,7 @@ class HiddenController extends GetxController {
         AuthenticationRepository.instance.logout();
         break;
       default:
+        Get.toNamed(AppPages.homeScreen);
         break;
     }
   }

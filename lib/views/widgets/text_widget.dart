@@ -12,6 +12,7 @@ class CustomText extends StatelessWidget {
     this.textAlign,
     this.textDecoration = TextDecoration.none,
     this.overflow,
+    this.maxLines,
   });
 
   final String text;
@@ -21,10 +22,12 @@ class CustomText extends StatelessWidget {
   final TextAlign? textAlign;
   final TextDecoration textDecoration;
   final TextOverflow? overflow;
+  final int? maxLines;
 
   @override
   Widget build(BuildContext context) {
     return Text(
+      maxLines: maxLines,
       text,
       style: GoogleFonts.raleway(
         fontSize: size,

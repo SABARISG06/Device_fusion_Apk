@@ -46,7 +46,7 @@ class AddToCart extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               CustomText(
-                                text: '2020 Apple iPad Air 10.9',
+                                text: '2020 Apple iPad Air Air 10.9',
                                 size: Dimensions.fontSize16,
                                 fontWeight: FontWeight.bold,
                                 color: AppColors.blackColor,

@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:device_fusion/constants/app_colors.dart';
+import 'package:device_fusion/controllers/hidden_drawer_controller.dart';
 import 'package:device_fusion/repository/expections/email_password_failure.dart';
 import 'package:device_fusion/repository/expections/login_exception.dart';
 import 'package:device_fusion/views/screens/Hidden_Drawer/hidden_drawer.dart';
@@ -29,7 +30,10 @@ class AuthenticationRepository extends GetxController {
   _setInitialScreen(User? user) {
     user == null
         ? Get.offAll(() => const SplashScreen())
-        : Get.off(() => const HiddenDrawer());
+        : () {
+            HiddenController.instance.closeDrawer(); // Close the drawer
+            Get.off(() => const HiddenDrawer());
+          }();
   }
 
   //! Create a account.

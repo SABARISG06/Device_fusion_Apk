@@ -1,22 +1,15 @@
 import 'package:device_fusion/constants/app_colors.dart';
 import 'package:device_fusion/constants/app_dimensions.dart';
+import 'package:device_fusion/constants/app_pages.dart';
+import 'package:device_fusion/models/categories_model.dart';
 import 'package:device_fusion/views/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_grid_view.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key});
-
-  static const categoriesItems = [
-    'Phones',
-    'Watches',
-    'Headphones',
-    'Laptops',
-    'Tablets',
-    'Other Products'
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +34,7 @@ class CategoriesScreen extends StatelessWidget {
               crossAxisCount: 2,
               crossAxisSpacing: Dimensions.sizedBoxH10,
               mainAxisSpacing: Dimensions.sizedBoxH10,
-              itemCount: categoriesItems.length,
+              itemCount: CategoriesData.listOfItems.length,
               itemBuilder: (context, index) => Container(
                 padding: EdgeInsets.all(Dimensions.edgeInsert10),
                 margin: EdgeInsets.all(Dimensions.edgeInsert10),
@@ -49,13 +42,21 @@ class CategoriesScreen extends StatelessWidget {
                   alignment: Alignment.topCenter,
                   clipBehavior: Clip.none,
                   children: [
+                    //!Card
                     SizedBox(
                       width: Dimensions.width160,
                       height: Dimensions.height190,
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                              Dimensions.borderRadius10 - 5),
+                      child: InkWell(
+                        onTap: () {
+                          subCatergories(index);
+                        },
+                        child: Card(
+                          elevation: 5,
+                          shadowColor: AppColors.whiteColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(
+                                Dimensions.borderRadius10 - 5),
+                          ),
                         ),
                       ),
                     ),
@@ -63,7 +64,7 @@ class CategoriesScreen extends StatelessWidget {
                     Positioned(
                       bottom: Dimensions.sizedBoxH50,
                       child: CustomText(
-                        text: categoriesItems[index],
+                        text: CategoriesData.listOfItems[index].title,
                         fontWeight: FontWeight.w600,
                         size: Dimensions.fontSize16,
                         color: AppColors.blackColor,
@@ -82,8 +83,8 @@ class CategoriesScreen extends StatelessWidget {
                                 Dimensions.borderRadius10 - 5),
                           ),
                           child: Image.asset(
-                            'assets/images/mobile.jpg',
-                            fit: BoxFit.cover,
+                            CategoriesData.listOfItems[index].imageUrl,
+                            fit: BoxFit.fill,
                           ),
                         ),
                       ),
@@ -99,5 +100,29 @@ class CategoriesScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void subCatergories(index) {
+    switch (CategoriesData.listOfItems[index].title) {
+      case 'Phones':
+        Get.toNamed(AppPages.subCatPhones);
+        break;
+      case 'Watches':
+        Get.toNamed(AppPages.subCatWatches);
+        break;
+      case 'Headphones':
+        Get.toNamed(AppPages.subCatHeadphones);
+        break;
+      case 'Laptops':
+        Get.toNamed(AppPages.subCatLaptop);
+        break;
+      case 'Tablets':
+        Get.toNamed(AppPages.subCatTablets);
+        break;
+      case 'Other Products':
+        Get.toNamed(AppPages.subCatOtherProducts);
+        break;
+      default:
+    }
   }
 }

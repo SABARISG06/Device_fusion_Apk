@@ -40,7 +40,7 @@ class Dummy extends StatelessWidget {
                             'assets/images/mobile.jpg',
                             fit: BoxFit.contain,
                             width: MediaQuery.of(context).size.width,
-                            height: MediaQuery.of(context).size.height * 0.18,
+                            height: MediaQuery.of(context).size.height * 0.17,
                           ),
                           SizedBox(
                             height: Dimensions.sizedBoxH10 - 5,
@@ -99,7 +99,7 @@ class Dummy extends StatelessWidget {
                             'assets/images/mobile.jpg',
                             fit: BoxFit.contain,
                             width: MediaQuery.of(context).size.width,
-                            height: MediaQuery.of(context).size.height * 0.18,
+                            height: MediaQuery.of(context).size.height * 0.17,
                           ),
                           SizedBox(
                             height: Dimensions.sizedBoxH10 - 5,
