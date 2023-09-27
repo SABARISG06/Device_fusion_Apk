@@ -1,8 +1,11 @@
 import 'package:device_fusion/constants/app_colors.dart';
 import 'package:device_fusion/constants/app_dimensions.dart';
+import 'package:device_fusion/controllers/price_sheet_controller.dart';
 import 'package:device_fusion/views/widgets/Sub-Category/sub_cat_watch_widget.dart';
+import 'package:device_fusion/views/widgets/getx_bottomsheet_widget.dart';
 import 'package:device_fusion/views/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 
 class CategoryWatch extends StatelessWidget {
@@ -21,7 +24,9 @@ class CategoryWatch extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              bottomSheet();
+            },
             icon: Icon(
               IconlyBold.filter,
               color: AppColors.whiteColor,
@@ -46,5 +51,20 @@ class CategoryWatch extends StatelessWidget {
         child: const SubCategoryWatch(),
       ),
     );
+  }
+
+  Future<void> bottomSheet() async {
+    await Future.delayed(Duration.zero);
+    return Get.bottomSheet(SortingBottomSheet(
+      onApplyBtn: () {
+        SortingListController.instance.isWatchSorting();
+        Get.back();
+      },
+      onClearBtn: () {
+        SortingListController.instance.groupValue.value = 1;
+        SortingListController.instance.isWatchSorting();
+        Get.back();
+      },
+    ));
   }
 }

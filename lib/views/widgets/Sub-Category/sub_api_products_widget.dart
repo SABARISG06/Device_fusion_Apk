@@ -6,40 +6,43 @@ import 'package:device_fusion/views/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SubCategoryWatch extends StatelessWidget {
-  const SubCategoryWatch({super.key});
+class SubApiProduct extends StatelessWidget {
+  const SubApiProduct({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        childAspectRatio: 1.5 / 3,
-      ),
-      itemCount: 6,
-      itemBuilder: (context, index) => InkWell(
-        onTap: () {
-          Get.to(() => const SingleProductScreen());
-        },
-        child: Obx(
-          () => Card(
+    return Obx(
+      () => GridView.builder(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          childAspectRatio: 1.5 / 3,
+        ),
+        itemCount: SortingListController.instance.restAPIProduct.length,
+        itemBuilder: (context, index) => InkWell(
+          onTap: () {
+            Get.to(() => const SingleProductScreen());
+          },
+          child: Card(
             child: Padding(
               padding: EdgeInsets.all(Dimensions.edgeInsert10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Image.asset(
-                    SortingListController.instance.watchProduct[index].imageUrl,
-                    fit: BoxFit.cover,
+                  //!Image
+                  Image.network(
+                    SortingListController.instance.restAPIProduct[index].image,
+                    fit: BoxFit.fill,
+                    height: Dimensions.height215 - 15,
                   ),
                   SizedBox(
                     height: Dimensions.sizedBoxH10,
                   ),
+                  //!title
                   CustomText(
                     text: SortingListController
-                        .instance.watchProduct[index].title,
+                        .instance.restAPIProduct[index].title,
                     size: Dimensions.fontSize18 - 2,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.normal,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     color: AppColors.blackColor,
@@ -47,9 +50,10 @@ class SubCategoryWatch extends StatelessWidget {
                   SizedBox(
                     height: Dimensions.sizedBoxH10,
                   ),
+                  //!price
                   CustomText(
-                    text: SortingListController
-                        .instance.watchProduct[index].price,
+                    text:
+                        '₹${SortingListController.instance.restAPIProduct[index].price.toString()}',
                     size: Dimensions.fontSize18 + 4,
                     fontWeight: FontWeight.bold,
                     color: AppColors.primaryColor,
@@ -61,9 +65,11 @@ class SubCategoryWatch extends StatelessWidget {
                     children: [
                       Wrap(
                         children: List.generate(
-                          5,
+                          SortingListController
+                              .instance.restAPIProduct[index].rating.rate
+                              .toInt(),
                           (index) => Icon(
-                            Icons.star,
+                            Icons.star_border,
                             color: AppColors.primaryColor,
                             size: Dimensions.iconSize34 - 15,
                           ),
@@ -72,8 +78,11 @@ class SubCategoryWatch extends StatelessWidget {
                       SizedBox(
                         width: Dimensions.sizedBoxW10 - 5,
                       ),
+                      //!rating
                       CustomText(
-                        text: '(3.9 Users)',
+                        text: SortingListController
+                            .instance.restAPIProduct[index].rating.rate
+                            .toString(),
                         fontWeight: FontWeight.bold,
                         size: Dimensions.fontSize18 - 4,
                         color: AppColors.blackColor,
@@ -85,7 +94,8 @@ class SubCategoryWatch extends StatelessWidget {
                   ),
                   CustomText(
                     text: SortingListController
-                        .instance.watchProduct[index].shipping,
+                        .instance.restAPIProduct[index].rating.count
+                        .toString(),
                     size: Dimensions.fontSize18 - 4,
                     fontWeight: FontWeight.w600,
                     color: AppColors.blackColor,

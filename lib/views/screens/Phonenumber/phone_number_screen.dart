@@ -27,7 +27,7 @@ class PhoneNumberScreen extends StatelessWidget {
               Image.asset('assets/images/number.png'),
               CustomFakeBottomSheet(
                 width: Dimensions.width413,
-                height: Dimensions.height620,
+                height: Dimensions.height640,
                 child: Column(
                   children: [
                     SizedBox(

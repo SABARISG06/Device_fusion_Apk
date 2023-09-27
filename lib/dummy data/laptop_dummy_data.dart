@@ -78,7 +78,7 @@ class SubLaptopCategory {
     ],
   );
 
-  static const List<SubCategoryModel> listOfTablets = [
+  static const List<SubCategoryModel> listOfLaptops = [
     product1,
     product2,
     product3,

@@ -96,7 +96,7 @@ class Dimensions {
   static double width413 = screenWidth / 0.99;
   static double right40 = screenWidth / 10.27;
 
-  static double height620 = screenHeight / 1.43;
+  static double height640 = screenHeight / 1.39;
   static double width210 = screenWidth / 1.95;
   static double height215 = screenHeight / 4.14;
   static double width212 = screenWidth / 1.94;

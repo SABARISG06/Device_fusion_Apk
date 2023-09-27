@@ -13,7 +13,7 @@ class SubWatchCategory {
     imageUrl: 'assets/images/watch2.webp',
     productID: 2,
     title: 'APPLE Watch Series 9 (GPS + Cellular)  (Graphite Strap, Free Size)',
-    price: '₹80,900',
+    price: '₹89,998',
     shipping: 'Free Shipping',
   );
   static const product3 = SubCategoryModel(

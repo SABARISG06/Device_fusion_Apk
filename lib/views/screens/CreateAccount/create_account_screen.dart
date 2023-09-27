@@ -29,7 +29,7 @@ class CreateAccount extends StatelessWidget {
             ),
             CustomFakeBottomSheet(
               width: Dimensions.width413,
-              height: Dimensions.height620 + 60,
+              height: MediaQuery.of(context).size.height * 0.85,
               child: Container(
                 margin: EdgeInsets.only(
                   top: Dimensions.edgeInsert30,

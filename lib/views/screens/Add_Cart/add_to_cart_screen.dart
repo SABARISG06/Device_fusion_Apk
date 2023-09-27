@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'package:device_fusion/constants/app_colors.dart';
 import 'package:device_fusion/constants/app_dimensions.dart';
+import 'package:device_fusion/models/add_to_cart_model.dart';
 import 'package:device_fusion/views/widgets/button_widget.dart';
 import 'package:device_fusion/views/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +30,7 @@ class AddToCart extends StatelessWidget {
               padding: EdgeInsets.symmetric(
                   horizontal: Dimensions.edgeInsert10 + 10),
               child: ListView.builder(
-                itemCount: 2,
+                itemCount: MyCartData.listOfItems.length,
                 itemBuilder: (context, index) => SizedBox(
                   height: Dimensions.height150,
                   width: Dimensions.width350,
@@ -40,23 +41,25 @@ class AddToCart extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Image.asset(
-                            'assets/images/mobile.jpg',
+                            MyCartData.listOfItems[index].imageUrl,
                           ),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               CustomText(
-                                text: '2020 Apple iPad Air Air 10.9',
+                                text: MyCartData.listOfItems[index].title,
                                 size: Dimensions.fontSize16,
                                 fontWeight: FontWeight.bold,
                                 color: AppColors.blackColor,
                                 overflow: TextOverflow.ellipsis,
+                                maxLines: 1,
                               ),
                               SizedBox(
                                 height: Dimensions.sizedBoxH10,
                               ),
                               CustomText(
-                                text: '₹999',
+                                text:
+                                    '₹${MyCartData.listOfItems[index].amount.toString()}',
                                 size: Dimensions.fontSize16,
                                 fontWeight: FontWeight.bold,
                                 color: AppColors.primaryColor,

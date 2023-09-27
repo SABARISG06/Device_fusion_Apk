@@ -31,7 +31,7 @@ class CategoriesData {
   );
   static const otherProducts = Categories(
     title: 'Other Products',
-    imageUrl: 'assets/images/mobile.jpg',
+    imageUrl: 'assets/images/product.png',
   );
 
   static List<Categories> listOfItems = [
