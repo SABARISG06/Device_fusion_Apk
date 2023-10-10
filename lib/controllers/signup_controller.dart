@@ -1,5 +1,6 @@
 import 'dart:developer';
-
+import 'package:device_fusion/models/user_model.dart';
+import 'package:device_fusion/repository/User%20Repository/user_repository.dart';
 import 'package:device_fusion/repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,12 +11,14 @@ class SignUpController extends GetxController {
   String email = '';
   String password = '';
   String confirmPassword = '';
+  String phoneNumber = '';
   RxBool isShow = true.obs;
   final signupFormKey = GlobalKey<FormState>();
   final userNameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
+  final phoneNumberController = TextEditingController();
 
   @override
   void onClose() {
@@ -23,6 +26,7 @@ class SignUpController extends GetxController {
     emailController.dispose();
     passwordController.dispose();
     confirmPasswordController.dispose();
+    phoneNumberController.dispose();
 
     super.onClose();
   }
@@ -84,10 +88,22 @@ class SignUpController extends GetxController {
     if (signupFormKey.currentState!.validate()) {
       signupFormKey.currentState!.save();
       createUserWithEmailAndPassword(email, password);
+      addUserToFirebase();
       log('Email: $email Password: $password');
       Future.delayed(const Duration(seconds: 3), () {
         clearTextField();
       });
     }
+  }
+
+  //!Firebase to add createuserdata
+
+  void addUserToFirebase() {
+    final user = UserModel(
+      userName: userNameController.text.trim(),
+      email: emailController.text.trim(),
+      password: passwordController.text.trim(),
+    );
+    UserRepositoryController.instance.createUser(user);
   }
 }

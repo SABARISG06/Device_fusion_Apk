@@ -7,9 +7,9 @@ import 'package:iconly/iconly.dart';
 
 class HiddenItems {
   static const home = HiddenDrawerModel(
-    title: 'Home',
+    title: 'Profile',
     icon: Icon(
-      IconlyBold.home,
+      IconlyBold.user_3,
       color: AppColors.whiteColor,
     ),
   );

@@ -35,8 +35,10 @@ class Dimensions {
 
   //?Container
   static double height8 = screenHeight / 111.25;
+  static double height4 = screenHeight / 222.5;
   static double height64 = screenHeight / 13.90;
   static double width64 = screenWidth / 6.42;
+  static double width8 = screenWidth / 45;
 
   static double width60 = screenWidth / 6.85;
 

@@ -230,7 +230,7 @@ class _SingleProductScreenState extends State<SingleProductScreen> {
       //!BottomNavigation.
       bottomNavigationBar: Container(
         color: AppColors.whiteColor,
-        height: Dimensions.fontSize60,
+        height: Dimensions.fontSize60 + 20,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -242,7 +242,8 @@ class _SingleProductScreenState extends State<SingleProductScreen> {
             ),
             ElevatedButton.icon(
               style: ElevatedButton.styleFrom(
-                fixedSize: Size(Dimensions.width180, Dimensions.sizedBoxH50),
+                fixedSize:
+                    Size(Dimensions.width180, Dimensions.sizedBoxH50 + 20),
                 backgroundColor: AppColors.primaryColor,
               ),
               label: CustomText(

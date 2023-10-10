@@ -15,6 +15,12 @@ import 'package:device_fusion/views/screens/NoConnection/no_connection_screen.da
 import 'package:device_fusion/views/screens/OnBoarding/choose_language_screen.dart';
 import 'package:device_fusion/views/screens/OnBoarding/splash_screen.dart';
 import 'package:device_fusion/views/screens/Phonenumber/otp_verification_screen.dart';
+import 'package:device_fusion/views/screens/Profile/edit_profile/edit_gender_screen.dart';
+import 'package:device_fusion/views/screens/Profile/edit_profile/edit_name_screen.dart';
+import 'package:device_fusion/views/screens/Profile/edit_profile/edit_password_screen.dart';
+import 'package:device_fusion/views/screens/Profile/edit_profile/edit_phone_number_screen.dart';
+import 'package:device_fusion/views/screens/Profile/edit_profile/edit_profile_screen.dart';
+import 'package:device_fusion/views/screens/Profile/profile_screen.dart';
 import 'package:device_fusion/views/screens/Search/search_screen.dart';
 import 'package:device_fusion/views/screens/Single_Product_temp/singleproduct_screen.dart';
 import 'package:get/get.dart';
@@ -100,6 +106,30 @@ class AppRoutes {
       GetPage(
         name: AppPages.addToCart,
         page: () => const AddToCart(),
+      ),
+      GetPage(
+        name: AppPages.profileScreen,
+        page: () => const ProfileScreen(),
+      ),
+      GetPage(
+        name: AppPages.editProfileScreen,
+        page: () => const EditProfileScreen(),
+      ),
+      GetPage(
+        name: AppPages.editNameScreen,
+        page: () => const EditNameScreen(),
+      ),
+      GetPage(
+        name: AppPages.editGenderScreen,
+        page: () => const EditGenderScreen(),
+      ),
+      GetPage(
+        name: AppPages.editPhoneNumberScreen,
+        page: () => const EditPhoneNumberScreen(),
+      ),
+      GetPage(
+        name: AppPages.editPasswordScreen,
+        page: () => const EditPasswordScreen(),
       ),
     ];
   }

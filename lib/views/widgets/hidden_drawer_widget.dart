@@ -11,6 +11,17 @@ class DrawerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final currentTime = DateTime.now();
+
+    // Check if it's morning, evening, or night (you can adjust the time ranges as needed)
+    String greetingText = '';
+    if (currentTime.hour >= 6 && currentTime.hour < 12) {
+      greetingText = 'Good Morning';
+    } else if (currentTime.hour >= 12 && currentTime.hour < 18) {
+      greetingText = 'Good afterNoon!';
+    } else {
+      greetingText = 'Good Night';
+    }
     return Scaffold(
       backgroundColor: AppColors.hiddenColor,
       body: Column(
@@ -29,7 +40,7 @@ class DrawerWidget extends StatelessWidget {
                   ),
                 ),
                 CustomText(
-                  text: 'Good Morning',
+                  text: greetingText,
                   size: Dimensions.fontSize18 + 4,
                   fontWeight: FontWeight.w500,
                 )

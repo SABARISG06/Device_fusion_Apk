@@ -24,7 +24,12 @@ class AppPages {
   static const String noConnectionScreen = '/noConnection';
   static const String favoriteScreen = '/favorite';
   static const String basketScreen = '/basket';
-  static const String profileScreen = '/profile';
+  static const String profileScreen = '/Profile';
+  static const String editProfileScreen = '/editProfileScreen';
+  static const String editNameScreen = '/Name';
+  static const String editGenderScreen = '/Gender';
+  static const String editPhoneNumberScreen = '/Phone-No';
+  static const String editPasswordScreen = '/Password';
   static const String checkOutScreen = '/checkOut';
   static const String paymentScreen = '/payment';
 }

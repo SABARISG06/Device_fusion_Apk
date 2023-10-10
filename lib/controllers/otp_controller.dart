@@ -1,5 +1,3 @@
-import 'package:device_fusion/repository/authentication_repository.dart';
-import 'package:device_fusion/views/screens/Homepage/home_page.dart';
 import 'package:get/get.dart';
 
 class OTPController extends GetxController {

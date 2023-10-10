@@ -56,7 +56,7 @@ class HiddenController extends GetxController {
         AuthenticationRepository.instance.logout();
         break;
       default:
-        Get.toNamed(AppPages.homeScreen);
+        Get.toNamed(AppPages.profileScreen);
         break;
     }
   }

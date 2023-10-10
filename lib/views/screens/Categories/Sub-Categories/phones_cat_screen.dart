@@ -2,7 +2,7 @@ import 'package:device_fusion/constants/app_colors.dart';
 import 'package:device_fusion/constants/app_dimensions.dart';
 import 'package:device_fusion/controllers/price_sheet_controller.dart';
 import 'package:device_fusion/views/widgets/Sub-Category/sub_cat_phones_widget.dart';
-import 'package:device_fusion/views/widgets/getx_bottomsheet_widget.dart';
+import 'package:device_fusion/views/widgets/getx_sortingbottomsheet_widget.dart';
 import 'package:device_fusion/views/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

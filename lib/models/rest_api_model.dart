@@ -51,13 +51,13 @@ class RestApiProduct {
       };
 }
 
-enum Category { ELECTRONICS, JEWELERY, MEN_S_CLOTHING, WOMEN_S_CLOTHING }
+enum Category { electronics, jewelery, mensclothing, womensclothing }
 
 final categoryValues = EnumValues({
-  "electronics": Category.ELECTRONICS,
-  "jewelery": Category.JEWELERY,
-  "men's clothing": Category.MEN_S_CLOTHING,
-  "women's clothing": Category.WOMEN_S_CLOTHING
+  "electronics": Category.electronics,
+  "jewelery": Category.jewelery,
+  "men's clothing": Category.mensclothing,
+  "women's clothing": Category.womensclothing
 });
 
 class Rating {
