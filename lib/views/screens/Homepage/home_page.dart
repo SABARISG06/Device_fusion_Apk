@@ -100,7 +100,7 @@ class HomePage extends StatelessWidget {
                       Get.to(() => const MyFavoritesScreen());
                     },
                     icon: Iconify(
-                      AppIcons.favoriteIcons,
+                      AppIcons.favoriteIcon,
                       size: Dimensions.iconSize34,
                       color: AppColors.whiteColor,
                     ),

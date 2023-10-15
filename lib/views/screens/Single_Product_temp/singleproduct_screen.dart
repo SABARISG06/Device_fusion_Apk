@@ -69,7 +69,7 @@ class _SingleProductScreenState extends State<SingleProductScreen> {
                 child: IconButton(
                   onPressed: () {},
                   icon: Iconify(
-                    AppIcons.favoriteIcons,
+                    AppIcons.favoriteIcon,
                     size: Dimensions.iconSize34 - 2,
                     color: AppColors.whiteColor,
                   ),

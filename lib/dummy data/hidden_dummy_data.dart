@@ -22,7 +22,7 @@ class HiddenItems {
   static const favorites = HiddenDrawerModel(
       title: 'Favorites',
       icon: Iconify(
-        AppIcons.favoriteIcons,
+        AppIcons.favoriteIcon,
         color: AppColors.whiteColor,
       ));
   static const orders = HiddenDrawerModel(

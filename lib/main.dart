@@ -6,6 +6,7 @@ import 'package:device_fusion/controllers/gender_controller.dart';
 import 'package:device_fusion/controllers/hidden_drawer_controller.dart';
 import 'package:device_fusion/controllers/login_controller.dart';
 import 'package:device_fusion/controllers/price_sheet_controller.dart';
+import 'package:device_fusion/controllers/profile_image_controller.dart';
 import 'package:device_fusion/controllers/signup_controller.dart';
 import 'package:device_fusion/controllers/tab_bar_controller.dart';
 import 'package:device_fusion/repository/User%20Repository/user_repository.dart';
@@ -28,6 +29,7 @@ void main() async {
   Get.put(UserRepositoryController());
   Get.put(EditProfileController());
   Get.put(GenderController());
+  Get.put(ImageController());
 
   WidgetsFlutterBinding.ensureInitialized();
 

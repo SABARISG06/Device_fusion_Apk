@@ -18,22 +18,6 @@ class GenderController extends GetxController {
 
     //* Update the gender value
     user.gender = updatedGender;
-
-    try {
-      await UserRepositoryController.instance.updateUserRecord(user);
-      Get.rawSnackbar(
-        title: 'Success',
-        message: 'Gender updated successfully',
-        duration: const Duration(seconds: 4),
-      );
-      //* Navigate back on success
-      Get.back();
-    } catch (e) {
-      Get.rawSnackbar(
-        title: 'Error',
-        message: 'Something went wrong. Try again',
-        duration: const Duration(seconds: 4),
-      );
-    }
+    await UserRepositoryController.instance.updateUserRecord(user);
   }
 }

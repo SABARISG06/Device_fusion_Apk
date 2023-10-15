@@ -32,7 +32,7 @@ class Dummy extends StatelessWidget {
                           Align(
                             alignment: Alignment.topRight,
                             child: Iconify(
-                              AppIcons.favoriteIcons,
+                              AppIcons.favoriteIcon,
                               size: Dimensions.iconSize34 - 10,
                             ),
                           ),
@@ -91,7 +91,7 @@ class Dummy extends StatelessWidget {
                           Align(
                             alignment: Alignment.topRight,
                             child: Iconify(
-                              AppIcons.favoriteIcons,
+                              AppIcons.favoriteIcon,
                               size: Dimensions.iconSize34 - 10,
                             ),
                           ),

@@ -8,6 +8,13 @@ UserModel userModelFromJson(String str) => UserModel.fromJson(json.decode(str));
 
 String userModelToJson(UserModel data) => json.encode(data.toJson());
 
+enum Gender {
+  male,
+  female,
+  other,
+  prefernottosay,
+}
+
 class UserModel {
   String? id;
   String? userName;
